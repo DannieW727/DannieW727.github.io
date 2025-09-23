@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dannie Wang | 个人主页</title>
+  <meta name="description" content="Dannie Wang 的极简个人主页（GitHub Pages 模板）" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>✨</text></svg>">
+  <style>
+    :root {
+      --bg: #0b0c0f;
+      --card: #11131a;
+      --text: #e6e7ea;
+      --muted: #a5a7ae;
+      --brand: #7aa2ff;
+      --accent: #7ef0d1;
+      --border: #1b1e27;
+    }
+    @media (prefers-color-scheme: light) {
+      :root { --bg:#f7f8fb; --card:#ffffff; --text:#12141a; --muted:#5a5f6a; --brand:#3b6af6; --accent:#11b899; --border:#e7e9f1; }
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; font: 15px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Ubuntu, Cantarell, Helvetica, Arial, sans-serif;
+      color: var(--text); background: radial-gradient(1200px 600px at 10% -10%, rgba(122,162,255,.15), transparent 60%),
+                              radial-gradient(800px 500px at 100% 0%, rgba(17,184,153,.18), transparent 40%),
+                              var(--bg);
+      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+    }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 28px 18px 80px; }
+
+    /* 顶部导航 */
+    header { position: sticky; top: 0; background: color-mix(in hsl, var(--bg) 92%, transparent); backdrop-filter: blur(6px); border-bottom: 1px solid var(--border); z-index: 10; }
+    .nav { display: flex; align-items: center; gap: 14px; height: 56px; max-width: 980px; margin: 0 auto; padding: 0 18px; }
+    .nav .logo { font-weight: 700; letter-spacing: .4px; }
+    .nav .spacer { flex: 1; }
+    .nav a { padding: 6px 10px; border-radius: 10px; }
+    .nav a:hover { background: color-mix(in hsl, var(--brand) 18%, transparent); text-decoration: none; }
+
+    /* 英雄区 */
+    .hero { display: grid; grid-template-columns: 1.3fr 1fr; gap: 28px; align-items: center; margin-top: 28px; }
+    .hero .card { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,.15); }
+    .hero h1 { margin: 0 0 10px; font-size: 32px; letter-spacing: .3px; }
+    .hero p { margin: 10px 0 0; color: var(--muted); }
+    .btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid var(--border); border-radius: 12px; background: linear-gradient(180deg, color-mix(in hsl, var(--card) 96%, transparent), color-mix(in hsl, var(--card) 85%, transparent)); cursor: pointer; }
+    .btn.primary { border-color: color-mix(in hsl, var(--brand) 40%, var(--border)); background: linear-gradient(180deg, color-mix(in hsl, var(--brand) 20%, var(--card)), var(--card)); }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,.1); text-decoration: none; }
+
+    /* 区块 */
+    section { margin-top: 36px; }
+    h2 { font-size: 22px; margin: 0 0 12px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .item { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; }
+    .item h3 { margin: 6px 0 6px; font-size: 16px; }
+    .item p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    /* 页脚 */
+    footer { margin-top: 48px; color: var(--muted); border-top: 1px dashed var(--border); padding-top: 14px; }
+
+    /* 响应式 */
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .grid { grid-template-columns: 1fr; }
+      .nav .hide-sm { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="logo">✨ Dannie Wang</div>
+      <div class="spacer"></div>
+      <a class="hide-sm" href="#about">关于我</a>
+      <a class="hide-sm" href="#projects">项目</a>
+      <a class="hide-sm" href="#contact">联系</a>
+      <a class="btn" href="https://github.com/DannieW727" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" id="about">
+      <div class="card">
+        <h1>Hello，I'm <span style="color:var(--brand)">Dannie Wang</span> 👋</h1>
+        <p>A student specializing in time series and industrial intelligence.</p>
+        <div class="btns">
+          <a class="btn primary" href="#projects">View projects</a>
+          <a class="btn" href="#contact">Contact me</a>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Quick info</h2>
+        <ul style="margin:8px 0 0; padding-left:18px; color:var(--muted)">
+          <li>Base: Chongqing, China</li>
+          <li>Research: Time-series & Industrial Intelligence</li>
+          <li>E-mail: <a href="mailto:wangdanyicqu@163.com">wangdanyicqu@163.com</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>My Projects</h2>
+      <div class="grid">
+        <article class="item">
+          <h3>🔧 Project A: PTFM</h3>
+          <p>This repository provides the implementation of Prototypical Time-Frequency Mixer (PTFM), a lightweight and effective framework designed for few-shot fault diagnosis in industrial robot transmission systems. It integrates temporal modeling (MLP‑Mixer), frequency-domain enhancement (FFT), and prototypical networks for metric-based classification.</p>
+          <p style="margin-top:8px">
+            <a href="https://github.com/DannieW727/fewshot-robot-fault" target="_blank" rel="noopener">GitHub · fewshot-robot-fault</a>
+          </p>
+        </article>
+        <article class="item">
+          <h3>🤖 Project B: TF‑MoE</h3>
+          <p>TF‑MoE is a dual‑expert model for robot fault diagnosis, combining time and frequency features via adaptive gating. Lightweight, robust, and effective on sensor data.</p>
+          <p style="margin-top:8px">
+            <a href="https://github.com/DannieW727/TF-MoE" target="_blank" rel="noopener">GitHub · TF‑MoE</a>
+          </p>
+        </article>
+        <article class="item">
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>联系 / Contact</h2>
+      <div class="item">
+        <p>邮箱 <a href="mailto:wangdanyicqu@163.com">wangdanyicqu@163.com</a> · GitHub <a href="https://github.com/DannieW727" target="_blank" rel="noopener">@DannieW727</a></p>
+      </div>
+    </section>
+
+    <footer>
+      <small>© <span id="y"></span> Dannie Wang. 由 GitHub Pages 驱动。</small>
+    </footer>
+  </main>
+
+  <script>
+    // 小增强：平滑滚动 & 年份
+    document.documentElement.style.scrollBehavior = 'smooth';
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
