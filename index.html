@@ -54,9 +54,10 @@
     section { margin-top: 36px; }
     h2 { font-size: 22px; margin: 0 0 12px; }
     .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .item { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; }
+    .item { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; }
     .item h3 { margin: 6px 0 6px; font-size: 16px; }
-    .item p { margin: 0; color: var(--muted); font-size: 14px; }
+    .item p { margin: 0; color: var(--muted); font-size: 14px; flex: 1; }
+    .item-link { margin-top: 12px; font-size: 14px; }
 
     /* 页脚 */
     footer { margin-top: 48px; color: var(--muted); border-top: 1px dashed var(--border); padding-top: 14px; }
@@ -109,19 +110,31 @@
       <div class="grid">
         <article class="item">
           <h3>🔧 Project A: PTFM</h3>
-          <p>This repository provides the implementation of Prototypical Time-Frequency Mixer (PTFM), a lightweight and effective framework designed for few-shot fault diagnosis in industrial robot transmission systems. It integrates temporal modeling (MLP‑Mixer), frequency-domain enhancement (FFT), and prototypical networks for metric-based classification.</p>
-          <p style="margin-top:8px">
-            <a href="https://github.com/DannieW727/fewshot-robot-fault" target="_blank" rel="noopener">GitHub · fewshot-robot-fault</a>
-          </p>
+          <p style="color:var(--brand); font-size:13px; font-weight:600; margin-bottom:4px">🎉 Published in IEEE Access (2025)</p>
+          <p><strong>Few-Shot Fault Diagnosis for Industrial Robot Transmission Systems via a Prototypical Time-Frequency Mixer.</strong></p>
+          <p style="margin-top:6px">A lightweight framework integrating temporal modeling (MLP‑Mixer), frequency-domain enhancement (FFT), and prototypical networks.</p>
+          <div class="item-link">
+            <a href="https://doi.org/10.1109/ACCESS.2025.3620386" target="_blank" rel="noopener">📄 Paper</a> · 
+            <a href="https://github.com/DannieW727/fewshot-robot-fault" target="_blank" rel="noopener">GitHub</a>
+          </div>
         </article>
+
         <article class="item">
           <h3>🤖 Project B: TF‑MoE</h3>
           <p>TF‑MoE is a dual‑expert model for robot fault diagnosis, combining time and frequency features via adaptive gating. Lightweight, robust, and effective on sensor data.</p>
-          <p style="margin-top:8px">
+          <div class="item-link">
             <a href="https://github.com/DannieW727/TF-MoE" target="_blank" rel="noopener">GitHub · TF‑MoE</a>
-          </p>
+          </div>
         </article>
+
         <article class="item">
+          <h3>🧠 Project C: AD-MoE</h3>
+          <p><strong>Adaptive Dilation Mixture-of-Experts.</strong></p>
+          <p style="margin-top:6px">An advanced model featuring adaptive dilation attention mechanisms and disentangled experts, designed for complex time-series prediction tasks.</p>
+          <div class="item-link">
+            <a href="https://github.com/DannieW727/AD-MoE" target="_blank" rel="noopener">GitHub · AD-MoE</a>
+          </div>
+        </article>
       </div>
     </section>
 
