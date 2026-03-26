@@ -1,11 +1,12 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dannie Wang | 个人主页</title>
-  <meta name="description" content="Dannie Wang 的极简个人主页（GitHub Pages 模板）" />
+  <title>Dannie Wang | Academic Homepage</title>
+  <meta name="description" content="Dannie Wang's personal academic homepage" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>✨</text></svg>">
+
   <style>
     :root {
       --bg: #0b0c0f;
@@ -15,7 +16,9 @@
       --brand: #7aa2ff;
       --accent: #7ef0d1;
       --border: #1b1e27;
+      --shadow: 0 10px 30px rgba(0,0,0,0.18);
     }
+
     @media (prefers-color-scheme: light) {
       :root {
         --bg:#f7f8fb;
@@ -25,103 +28,109 @@
         --brand:#3b6af6;
         --accent:#11b899;
         --border:#e7e9f1;
+        --shadow: 0 10px 30px rgba(0,0,0,0.08);
       }
     }
 
     * { box-sizing: border-box; }
-    html, body { height: 100%; }
-
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font: 15px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Ubuntu, Cantarell, Helvetica, Arial, sans-serif;
+      font: 15px/1.7 system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(1200px 600px at 10% -10%, rgba(122,162,255,0.15), transparent 60%),
-        radial-gradient(800px 500px at 100% 0%, rgba(17,184,153,0.18), transparent 40%),
+        radial-gradient(1200px 600px at 10% -10%, rgba(122,162,255,0.14), transparent 60%),
+        radial-gradient(800px 500px at 100% 0%, rgba(17,184,153,0.14), transparent 40%),
         var(--bg);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
 
-    a { color: var(--brand); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    .wrap {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 28px 18px 80px;
+    a {
+      color: var(--brand);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
     }
 
-    /* 顶部导航 */
     header {
       position: sticky;
       top: 0;
-      background: color-mix(in hsl, var(--bg) 92%, transparent);
-      backdrop-filter: blur(6px);
+      z-index: 50;
+      backdrop-filter: blur(8px);
+      background: color-mix(in hsl, var(--bg) 90%, transparent);
       border-bottom: 1px solid var(--border);
-      z-index: 10;
     }
 
     .nav {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 0 20px;
+      height: 60px;
       display: flex;
       align-items: center;
       gap: 14px;
-      height: 56px;
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 0 18px;
     }
 
-    .nav .logo {
+    .logo {
       font-weight: 700;
-      letter-spacing: .4px;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
     }
 
-    .nav .spacer { flex: 1; }
+    .spacer { flex: 1; }
 
     .nav a {
-      padding: 6px 10px;
+      padding: 7px 10px;
       border-radius: 10px;
+      color: var(--text);
     }
 
     .nav a:hover {
-      background: color-mix(in hsl, var(--brand) 18%, transparent);
+      background: color-mix(in hsl, var(--brand) 14%, transparent);
       text-decoration: none;
     }
 
-    /* 英雄区 */
-    .hero {
-      display: grid;
-      grid-template-columns: 1.3fr 1fr;
-      gap: 28px;
-      align-items: center;
-      margin-top: 28px;
+    .wrap {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 28px 20px 80px;
     }
 
-    .hero .card {
+    .hero {
+      display: grid;
+      grid-template-columns: 1.35fr 0.95fr;
+      gap: 22px;
+      align-items: stretch;
+      margin-top: 18px;
+    }
+
+    .card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 18px;
+      border-radius: 20px;
       padding: 24px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      box-shadow: var(--shadow);
     }
 
     .hero h1 {
       margin: 0 0 10px;
-      font-size: 32px;
-      letter-spacing: .3px;
+      font-size: 34px;
+      line-height: 1.25;
     }
 
     .hero p {
-      margin: 10px 0 0;
+      margin: 0;
       color: var(--muted);
+      font-size: 15px;
     }
 
     .btns {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 16px;
+      margin-top: 18px;
     }
 
     .btn {
@@ -129,98 +138,156 @@
       align-items: center;
       gap: 8px;
       padding: 10px 14px;
-      border: 1px solid var(--border);
       border-radius: 12px;
+      border: 1px solid var(--border);
       background: linear-gradient(
         180deg,
-        color-mix(in hsl, var(--card) 96%, transparent),
-        color-mix(in hsl, var(--card) 85%, transparent)
+        color-mix(in hsl, var(--card) 95%, transparent),
+        color-mix(in hsl, var(--card) 82%, transparent)
       );
-      cursor: pointer;
+      color: var(--text);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
     }
 
     .btn.primary {
       border-color: color-mix(in hsl, var(--brand) 40%, var(--border));
       background: linear-gradient(
         180deg,
-        color-mix(in hsl, var(--brand) 20%, var(--card)),
+        color-mix(in hsl, var(--brand) 18%, var(--card)),
         var(--card)
       );
     }
 
-    .btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-      text-decoration: none;
+    section {
+      margin-top: 34px;
     }
 
-    /* 区块 */
-    section { margin-top: 36px; }
-    h2 { font-size: 22px; margin: 0 0 12px; }
+    h2 {
+      margin: 0 0 14px;
+      font-size: 24px;
+      letter-spacing: 0.2px;
+    }
 
-    .grid {
+    .section-intro {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .two-col {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .timeline {
+      display: grid;
       gap: 16px;
     }
 
     .item {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: var(--shadow);
     }
 
     .item h3 {
-      margin: 6px 0 6px;
-      font-size: 16px;
+      margin: 0 0 6px;
+      font-size: 18px;
+    }
+
+    .meta {
+      font-size: 13px;
+      color: var(--brand);
+      font-weight: 600;
+      margin-bottom: 10px;
     }
 
     .item p {
       margin: 0;
       color: var(--muted);
-      font-size: 14px;
-      line-height: 1.7;
     }
 
-    .item-link {
+    .item ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .item li {
+      margin: 6px 0;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .pub-badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--brand);
+      margin-bottom: 8px;
+    }
+
+    .subpaper {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .link-row {
       margin-top: 12px;
       font-size: 14px;
     }
 
-    .pub-tag {
-      color: var(--brand);
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 6px;
+    .resume-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    .subpaper {
-      margin-top: 10px;
-      padding-top: 10px;
-      border-top: 1px dashed var(--border);
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
     }
 
-    /* 页脚 */
     footer {
       margin-top: 48px;
-      color: var(--muted);
+      padding-top: 16px;
       border-top: 1px dashed var(--border);
-      padding-top: 14px;
+      color: var(--muted);
+      font-size: 14px;
     }
 
-    /* 响应式 */
-    @media (max-width: 860px) {
-      .hero { grid-template-columns: 1fr; }
-      .grid { grid-template-columns: 1fr; }
+    @media (max-width: 900px) {
+      .hero,
+      .two-col,
+      .project-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
-    @media (max-width: 560px) {
-      .grid { grid-template-columns: 1fr; }
-      .nav .hide-sm { display: none; }
-      .hero h1 { font-size: 28px; }
+    @media (max-width: 680px) {
+      .nav .hide-sm {
+        display: none;
+      }
+      .hero h1 {
+        font-size: 28px;
+      }
     }
   </style>
 </head>
@@ -229,63 +296,144 @@
     <nav class="nav">
       <div class="logo">✨ Dannie Wang</div>
       <div class="spacer"></div>
-      <a class="hide-sm" href="#about">关于我</a>
-      <a class="hide-sm" href="#projects">项目</a>
-      <a class="hide-sm" href="#contact">联系</a>
+      <a class="hide-sm" href="#about">About</a>
+      <a class="hide-sm" href="#experience">Experience</a>
+      <a class="hide-sm" href="#projects">Projects</a>
+      <a class="hide-sm" href="#resume">Resume</a>
+      <a class="hide-sm" href="#contact">Contact</a>
       <a class="btn" href="https://github.com/DannieW727" target="_blank" rel="noopener">GitHub</a>
     </nav>
   </header>
 
   <main class="wrap">
-    <section class="hero" id="about">
+    <section class="hero">
       <div class="card">
         <h1>Hello, I'm <span style="color:var(--brand)">Dannie Wang</span> 👋</h1>
         <p>
-          A student specializing in time-series modeling, industrial intelligence,
-          and intelligent fault diagnosis.
+          I am currently an undergraduate student at Chongqing University. My research interests
+          focus on time-series modeling, industrial intelligence, fault diagnosis, and machine learning
+          applications in real-world engineering systems.
         </p>
+
         <div class="btns">
-          <a class="btn primary" href="#projects">View projects</a>
-          <a class="btn" href="#contact">Contact me</a>
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn" href="#resume">View Resume</a>
+          <a class="btn" href="#contact">Contact Me</a>
         </div>
       </div>
 
       <div class="card">
-        <h2>Quick info</h2>
-        <ul style="margin:8px 0 0; padding-left:18px; color:var(--muted)">
-          <li>Base: Chongqing, China</li>
-          <li>Research: Time-series Modeling, Fault Diagnosis, and Industrial Intelligence</li>
-          <li>E-mail: <a href="mailto:wangdanyicqu@163.com">wangdanyicqu@163.com</a></li>
+        <h2>Quick Info</h2>
+        <ul style="margin:10px 0 0; padding-left:18px; color:var(--muted);">
+          <li>Undergraduate Student, Chongqing University</li>
+          <li>Research Interests: Time-Series Modeling, Fault Diagnosis, Industrial AI</li>
+          <li>Email: <a href="mailto:wangdanyicqu@163.com">wangdanyicqu@163.com</a></li>
+          <li>GitHub: <a href="https://github.com/DannieW727" target="_blank" rel="noopener">@DannieW727</a></li>
         </ul>
       </div>
     </section>
 
-    <section id="projects">
-      <h2>My Projects</h2>
-      <div class="grid">
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="item">
+        <p>
+          I am currently pursuing my undergraduate studies at <strong>Chongqing University</strong>.
+          My academic background is in electrical engineering and intelligent systems, and I have developed
+          strong interests in time-series analysis, machine learning, industrial process modeling, and fault diagnosis.
+        </p>
+        <p style="margin-top:12px;">
+          Through coursework, research projects, and co-op experiences, I have worked on both academic and industrial problems,
+          including few-shot fault diagnosis for industrial robot transmission systems and data-driven prediction for blast furnace processes.
+          I enjoy connecting theory with practical engineering applications and building models that are both effective and interpretable.
+        </p>
+      </div>
+    </section>
 
+    <section id="experience">
+      <h2>Experience</h2>
+      <p class="section-intro">
+        Co-op internships and student leadership experience.
+      </p>
+
+      <div class="timeline">
+        <div class="item">
+          <h3>Research Intern · Chongqing University</h3>
+          <div class="meta">Jan 2024 – Apr 2024</div>
+          <ul>
+            <li>Worked on servo motor drive system control and simulation.</li>
+            <li>Used MATLAB/Simulink for FOC, SVPWM, PID-related modeling and parameter analysis.</li>
+            <li>Participated in program testing and engineering analysis for control system performance.</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <h3>System Engineering Intern · NARI Rail Transit Technology Co., Ltd.</h3>
+          <div class="meta">May 2024 – Aug 2024</div>
+          <ul>
+            <li>Participated in rail transit project system design and documentation.</li>
+            <li>Produced CAD drawings related to BAS, FAS, CCTV, AFC, and electrical systems.</li>
+            <li>Assisted with system linkage logic analysis and workflow optimization.</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <h3>Time Series Algorithm Intern · CISDI Information Technology (Chongqing) Co., Ltd.</h3>
+          <div class="meta">Jan 2025 – Apr 2025</div>
+          <ul>
+            <li>Built and tested time-series forecasting and anomaly detection models using PyTorch.</li>
+            <li>Reproduced and studied models such as PatchTST, ModernTCN, and TimeMixer.</li>
+            <li>Applied modeling methods to industrial prediction tasks and prepared technical documentation.</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <h3>Time Series Algorithm Intern · CISDI Information Technology (Chongqing) Co., Ltd.</h3>
+          <div class="meta">Sep 2025 – Dec 2025</div>
+          <ul>
+            <li>Continued research and development on industrial time-series modeling tasks.</li>
+            <li>Focused on forecasting, anomaly detection, model optimization, and engineering deployment support.</li>
+            <li>Contributed to data-driven analysis for complex industrial systems.</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <h3>Student Leadership · Chongqing University–University of Cincinnati Joint Co-op Institute</h3>
+          <div class="meta">Sep 2023 – Sep 2025</div>
+          <ul>
+            <li>Served as <strong>Deputy Secretary of the Youth League Committee</strong> in the first year.</li>
+            <li>Served as <strong>Executive Deputy Secretary of the Youth League Committee</strong> in the second year.</li>
+            <li>As a presidium member, helped organize and coordinate student activities, orientations, and institute events.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <p class="section-intro">
+        Selected research projects with corresponding GitHub repositories and publication links.
+      </p>
+
+      <div class="project-grid">
         <article class="item">
           <h3>🔧 Project A: PTFM</h3>
-          <p class="pub-tag">🎉 Published in <em>IEEE Access (2025)<em> & <em>IET Conference Proceedings (PHM 2025)<em></p>
+          <div class="pub-badge">Published in IEEE Access & IET Conference Proceedings</div>
 
           <p>
-            <strong>Project theme:</strong> few-shot intelligent fault diagnosis based on time-frequency modeling
-            and prototypical learning.
+            <strong>Project theme:</strong> few-shot fault diagnosis based on time-frequency representation learning
+            and prototypical networks.
           </p>
 
-          <div class="subpaper" style="border-top:none; padding-top:0; margin-top:10px;">
+          <div class="subpaper" style="border-top:none; padding-top:0; margin-top:12px;">
             <p>
               <strong>Paper 1:</strong>
               Few-Shot Fault Diagnosis for Industrial Robot Transmission Systems via a Prototypical Time-Frequency Mixer.
             </p>
-            <p style="margin-top:6px;">
-              A lightweight framework integrating temporal modeling (MLP-Mixer), frequency-domain enhancement (FFT),
-              and prototypical networks for few-shot fault diagnosis in industrial robot transmission systems.
+            <p style="margin-top:8px;">
+              A lightweight framework integrating temporal modeling, frequency-domain enhancement, and prototypical learning
+              for industrial robot transmission fault diagnosis.
             </p>
-            <p style="margin-top:6px; font-size:13px;">
-              Wang, Danyi; Wang, Tianyi; Wang, Xiaoya. <em>IEEE Access</em>, 2025, 13: 178045–178059.
-            </p>
-            <div class="item-link">
+            <div class="link-row">
               <a href="https://doi.org/10.1109/ACCESS.2025.3620386" target="_blank" rel="noopener">📄 Paper 1</a>
               ·
               <a href="https://github.com/DannieW727/fewshot-robot-fault" target="_blank" rel="noopener">GitHub</a>
@@ -297,15 +445,11 @@
               <strong>Paper 2:</strong>
               Fault Diagnosis in Rolling Element Bearings Based on TimeMixer and Prototypical Network.
             </p>
-            <p style="margin-top:6px;">
-              This work applies TimeMixer and prototypical networks to rolling element bearing fault diagnosis,
-              extending the PTFM research line in few-shot and intelligent fault diagnosis.
+            <p style="margin-top:8px;">
+              This work extends the project line to rolling element bearings and explores TimeMixer with prototypical learning
+              for intelligent diagnosis.
             </p>
-            <p style="margin-top:6px; font-size:13px;">
-              Danyi Wang, Tianyi Wang, Boya Zhang. <em>IET Conference Proceedings</em>,
-              15th Prognostics and System Health Management Conference (PHM 2025), 16 June 2025.
-            </p>
-            <div class="item-link">
+            <div class="link-row">
               <a href="https://doi.org/10.1049/icp.2025.2349" target="_blank" rel="noopener">📄 Paper 2</a>
             </div>
           </div>
@@ -313,51 +457,86 @@
 
         <article class="item">
           <h3>🧠 Project B: AD-MoE</h3>
-          <p class="pub-tag">🎉 Published in <em>Steel Research International (2026)</em></p>
+          <div class="pub-badge">Published in Steel Research International</div>
 
           <p>
-            <strong>
-              Adaptive Dilation Attention and Disentangled Mixture-of-Experts for Hot Metal Silicon Prediction
-              in Blast Furnace Ironmaking Process.
-            </strong>
+            <strong>Adaptive Dilation Attention and Disentangled Mixture-of-Experts for Hot Metal Silicon Prediction in Blast Furnace Ironmaking Process.</strong>
           </p>
-          <p style="margin-top:6px;">
-            A prediction framework for blast furnace ironmaking that combines adaptive dilation attention
-            with a disentangled mixture-of-experts encoder to capture multiscale temporal dependencies and
-            improve robustness against noisy industrial measurements.
+          <p style="margin-top:8px;">
+            A time-series prediction framework for blast furnace ironmaking that combines adaptive dilation attention
+            and disentangled mixture-of-experts to capture multiscale temporal dependencies and improve robustness
+            under noisy industrial environments.
           </p>
-          <p style="margin-top:6px; font-size:13px;">
-            Wang, Danyi; Li, Lei; Zheng, Ziyi; Wang, Xiaoya.
-          </p>
-          <div class="item-link">
+
+          <div class="link-row">
             <a href="https://doi.org/10.1002/srin.202501278" target="_blank" rel="noopener">📄 Paper</a>
             ·
             <a href="https://github.com/DannieW727/AD-MoE" target="_blank" rel="noopener">GitHub</a>
           </div>
         </article>
+      </div>
+    </section>
 
+    <section id="resume">
+      <h2>Resume</h2>
+      <div class="item">
+        <div class="resume-box">
+          <div>
+            <p>
+              You can view or download my resume here.
+            </p>
+            <p style="margin-top:10px;">
+              Please upload your PDF file to the same GitHub repository and name it
+              <strong>resume.pdf</strong>.
+            </p>
+          </div>
+
+          <div class="btns" style="margin-top:0;">
+            <a class="btn primary" href="resume.pdf" target="_blank" rel="noopener">📄 View Resume</a>
+            <a class="btn" href="resume.pdf" download>Download PDF</a>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="contact">
-      <h2>联系 / Contact</h2>
-      <div class="item">
-        <p>
-          邮箱 <a href="mailto:wangdanyicqu@163.com">wangdanyicqu@163.com</a>
-          · GitHub
-          <a href="https://github.com/DannieW727" target="_blank" rel="noopener">@DannieW727</a>
-        </p>
+      <h2>Contact Info</h2>
+      <div class="contact-grid">
+        <div class="item">
+          <h3>Email</h3>
+          <p>
+            <a href="mailto:wangdanyicqu@163.com">wangdanyicqu@163.com</a>
+          </p>
+        </div>
+
+        <div class="item">
+          <h3>GitHub</h3>
+          <p>
+            <a href="https://github.com/DannieW727" target="_blank" rel="noopener">github.com/DannieW727</a>
+          </p>
+        </div>
+
+        <div class="item">
+          <h3>Instagram</h3>
+          <p>
+            <a href="https://www.instagram.com/your_instagram/" target="_blank" rel="noopener">@your_instagram</a>
+          </p>
+        </div>
+
+        <div class="item">
+          <h3>Location</h3>
+          <p>Chongqing, China</p>
+        </div>
       </div>
     </section>
 
     <footer>
-      <small>© <span id="y"></span> Dannie Wang. 由 GitHub Pages 驱动。</small>
+      <small>© <span id="year"></span> Dannie Wang. Built with GitHub Pages.</small>
     </footer>
   </main>
 
   <script>
-    document.documentElement.style.scrollBehavior = 'smooth';
-    document.getElementById('y').textContent = new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
