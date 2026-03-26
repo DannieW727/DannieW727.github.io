@@ -17,59 +17,210 @@
       --border: #1b1e27;
     }
     @media (prefers-color-scheme: light) {
-      :root { --bg:#f7f8fb; --card:#ffffff; --text:#12141a; --muted:#5a5f6a; --brand:#3b6af6; --accent:#11b899; --border:#e7e9f1; }
+      :root {
+        --bg:#f7f8fb;
+        --card:#ffffff;
+        --text:#12141a;
+        --muted:#5a5f6a;
+        --brand:#3b6af6;
+        --accent:#11b899;
+        --border:#e7e9f1;
+      }
     }
+
     * { box-sizing: border-box; }
     html, body { height: 100%; }
+
     body {
-      margin: 0; font: 15px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Ubuntu, Cantarell, Helvetica, Arial, sans-serif;
-      color: var(--text); background: radial-gradient(1200px 600px at 10% -10%, rgba(122,162,255,.15), transparent 60%),
-                              radial-gradient(800px 500px at 100% 0%, rgba(17,184,153,.18), transparent 40%),
-                              var(--bg);
-      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+      margin: 0;
+      font: 15px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Ubuntu, Cantarell, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(122,162,255,0.15), transparent 60%),
+        radial-gradient(800px 500px at 100% 0%, rgba(17,184,153,0.18), transparent 40%),
+        var(--bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
+
     a { color: var(--brand); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .wrap { max-width: 980px; margin: 0 auto; padding: 28px 18px 80px; }
+
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 18px 80px;
+    }
 
     /* 顶部导航 */
-    header { position: sticky; top: 0; background: color-mix(in hsl, var(--bg) 92%, transparent); backdrop-filter: blur(6px); border-bottom: 1px solid var(--border); z-index: 10; }
-    .nav { display: flex; align-items: center; gap: 14px; height: 56px; max-width: 980px; margin: 0 auto; padding: 0 18px; }
-    .nav .logo { font-weight: 700; letter-spacing: .4px; }
+    header {
+      position: sticky;
+      top: 0;
+      background: color-mix(in hsl, var(--bg) 92%, transparent);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--border);
+      z-index: 10;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      height: 56px;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 18px;
+    }
+
+    .nav .logo {
+      font-weight: 700;
+      letter-spacing: .4px;
+    }
+
     .nav .spacer { flex: 1; }
-    .nav a { padding: 6px 10px; border-radius: 10px; }
-    .nav a:hover { background: color-mix(in hsl, var(--brand) 18%, transparent); text-decoration: none; }
+
+    .nav a {
+      padding: 6px 10px;
+      border-radius: 10px;
+    }
+
+    .nav a:hover {
+      background: color-mix(in hsl, var(--brand) 18%, transparent);
+      text-decoration: none;
+    }
 
     /* 英雄区 */
-    .hero { display: grid; grid-template-columns: 1.3fr 1fr; gap: 28px; align-items: center; margin-top: 28px; }
-    .hero .card { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,.15); }
-    .hero h1 { margin: 0 0 10px; font-size: 32px; letter-spacing: .3px; }
-    .hero p { margin: 10px 0 0; color: var(--muted); }
-    .btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
-    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid var(--border); border-radius: 12px; background: linear-gradient(180deg, color-mix(in hsl, var(--card) 96%, transparent), color-mix(in hsl, var(--card) 85%, transparent)); cursor: pointer; }
-    .btn.primary { border-color: color-mix(in hsl, var(--brand) 40%, var(--border)); background: linear-gradient(180deg, color-mix(in hsl, var(--brand) 20%, var(--card)), var(--card)); }
-    .btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,.1); text-decoration: none; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 28px;
+      align-items: center;
+      margin-top: 28px;
+    }
+
+    .hero .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: 32px;
+      letter-spacing: .3px;
+    }
+
+    .hero p {
+      margin: 10px 0 0;
+      color: var(--muted);
+    }
+
+    .btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: linear-gradient(
+        180deg,
+        color-mix(in hsl, var(--card) 96%, transparent),
+        color-mix(in hsl, var(--card) 85%, transparent)
+      );
+      cursor: pointer;
+    }
+
+    .btn.primary {
+      border-color: color-mix(in hsl, var(--brand) 40%, var(--border));
+      background: linear-gradient(
+        180deg,
+        color-mix(in hsl, var(--brand) 20%, var(--card)),
+        var(--card)
+      );
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      text-decoration: none;
+    }
 
     /* 区块 */
     section { margin-top: 36px; }
     h2 { font-size: 22px; margin: 0 0 12px; }
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .item { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; }
-    .item h3 { margin: 6px 0 6px; font-size: 16px; }
-    .item p { margin: 0; color: var(--muted); font-size: 14px; flex: 1; }
-    .item-link { margin-top: 12px; font-size: 14px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .item h3 {
+      margin: 6px 0 6px;
+      font-size: 16px;
+    }
+
+    .item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .item-link {
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    .pub-tag {
+      color: var(--brand);
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .subpaper {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--border);
+    }
 
     /* 页脚 */
-    footer { margin-top: 48px; color: var(--muted); border-top: 1px dashed var(--border); padding-top: 14px; }
+    footer {
+      margin-top: 48px;
+      color: var(--muted);
+      border-top: 1px dashed var(--border);
+      padding-top: 14px;
+    }
 
     /* 响应式 */
     @media (max-width: 860px) {
       .hero { grid-template-columns: 1fr; }
-      .grid { grid-template-columns: 1fr 1fr; }
+      .grid { grid-template-columns: 1fr; }
     }
+
     @media (max-width: 560px) {
       .grid { grid-template-columns: 1fr; }
       .nav .hide-sm { display: none; }
+      .hero h1 { font-size: 28px; }
     }
   </style>
 </head>
@@ -88,18 +239,22 @@
   <main class="wrap">
     <section class="hero" id="about">
       <div class="card">
-        <h1>Hello，I'm <span style="color:var(--brand)">Dannie Wang</span> 👋</h1>
-        <p>A student specializing in time series and industrial intelligence.</p>
+        <h1>Hello, I'm <span style="color:var(--brand)">Dannie Wang</span> 👋</h1>
+        <p>
+          A student specializing in time-series modeling, industrial intelligence,
+          and intelligent fault diagnosis.
+        </p>
         <div class="btns">
           <a class="btn primary" href="#projects">View projects</a>
           <a class="btn" href="#contact">Contact me</a>
         </div>
       </div>
+
       <div class="card">
         <h2>Quick info</h2>
         <ul style="margin:8px 0 0; padding-left:18px; color:var(--muted)">
           <li>Base: Chongqing, China</li>
-          <li>Research: Time-series & Industrial Intelligence</li>
+          <li>Research: Time-series Modeling, Fault Diagnosis, and Industrial Intelligence</li>
           <li>E-mail: <a href="mailto:wangdanyicqu@163.com">wangdanyicqu@163.com</a></li>
         </ul>
       </div>
@@ -108,56 +263,90 @@
     <section id="projects">
       <h2>My Projects</h2>
       <div class="grid">
-        <article class="item">
-          <h3>🔧 Project A: PTFM</h3>
-          <p style="color:var(--brand); font-size:13px; font-weight:600; margin-bottom:4px">🎉 Published in IEEE Access (2025)</p>
-          <p><strong>Few-Shot Fault Diagnosis for Industrial Robot Transmission Systems via a Prototypical Time-Frequency Mixer.</strong></p>
-          <p style="margin-top:6px">A lightweight framework integrating temporal modeling (MLP‑Mixer), frequency-domain enhancement (FFT), and prototypical networks.</p>
-          <div class="item-link">
-            <a href="https://doi.org/10.1109/ACCESS.2025.3620386" target="_blank" rel="noopener">📄 Paper</a> · 
-            <a href="https://github.com/DannieW727/fewshot-robot-fault" target="_blank" rel="noopener">GitHub</a>
-          </div>
-        </article>
 
         <article class="item">
-          <h3>🤖 Project B: TF‑MoE</h3>
-          <p>TF‑MoE is a dual‑expert model for robot fault diagnosis, combining time and frequency features via adaptive gating. Lightweight, robust, and effective on sensor data.</p>
-          <div class="item-link">
-            <a href="https://github.com/DannieW727/TF-MoE" target="_blank" rel="noopener">GitHub · TF‑MoE</a>
+          <h3>🔧 Project A: PTFM</h3>
+          <p class="pub-tag">🎉 Published in IEEE Access (2025) & IET Conference Proceedings (PHM 2025)</p>
+
+          <p>
+            <strong>Project theme:</strong> few-shot intelligent fault diagnosis based on time-frequency modeling
+            and prototypical learning.
+          </p>
+
+          <div class="subpaper" style="border-top:none; padding-top:0; margin-top:10px;">
+            <p>
+              <strong>Paper 1:</strong>
+              Few-Shot Fault Diagnosis for Industrial Robot Transmission Systems via a Prototypical Time-Frequency Mixer.
+            </p>
+            <p style="margin-top:6px;">
+              A lightweight framework integrating temporal modeling (MLP-Mixer), frequency-domain enhancement (FFT),
+              and prototypical networks for few-shot fault diagnosis in industrial robot transmission systems.
+            </p>
+            <p style="margin-top:6px; font-size:13px;">
+              Wang, Danyi; Wang, Tianyi; Wang, Xiaoya. <em>IEEE Access</em>, 2025, 13: 178045–178059.
+            </p>
+            <div class="item-link">
+              <a href="https://doi.org/10.1109/ACCESS.2025.3620386" target="_blank" rel="noopener">📄 Paper 1</a>
+              ·
+              <a href="https://github.com/DannieW727/fewshot-robot-fault" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </div>
+
+          <div class="subpaper">
+            <p>
+              <strong>Paper 2:</strong>
+              Fault Diagnosis in Rolling Element Bearings Based on TimeMixer and Prototypical Network.
+            </p>
+            <p style="margin-top:6px;">
+              This work applies TimeMixer and prototypical networks to rolling element bearing fault diagnosis,
+              extending the PTFM research line in few-shot and intelligent fault diagnosis.
+            </p>
+            <p style="margin-top:6px; font-size:13px;">
+              Danyi Wang, Tianyi Wang, Boya Zhang. <em>IET Conference Proceedings</em>,
+              15th Prognostics and System Health Management Conference (PHM 2025), 16 June 2025.
+            </p>
+            <div class="item-link">
+              <a href="https://doi.org/10.1049/icp.2025.2349" target="_blank" rel="noopener">📄 Paper 2</a>
+            </div>
           </div>
         </article>
 
         <article class="item">
           <h3>🧠 Project C: AD-MoE</h3>
-          <p style="color:var(--brand); font-size:13px; font-weight:600; margin-bottom:4px">
-            🎉 Accepted by <em>Steel Research International</em>
-          </p>
+          <p class="pub-tag">🎉 Published in <em>Steel Research International</em></p>
+
           <p>
             <strong>
               Adaptive Dilation Attention and Disentangled Mixture-of-Experts for Hot Metal Silicon Prediction
               in Blast Furnace Ironmaking Process.
             </strong>
           </p>
-          <p style="margin-top:6px">
-            A time-series prediction framework designed for blast furnace ironmaking, featuring
-            adaptive dilation attention and disentangled experts to model multi-scale temporal dynamics
-            and complex process coupling in hot metal silicon prediction.
+          <p style="margin-top:6px;">
+            A prediction framework for blast furnace ironmaking that combines adaptive dilation attention
+            with a disentangled mixture-of-experts encoder to capture multiscale temporal dependencies and
+            improve robustness against noisy industrial measurements.
+          </p>
+          <p style="margin-top:6px; font-size:13px;">
+            Wang, Danyi; Li, Lei; Zheng, Ziyi; Wang, Xiaoya.
           </p>
           <div class="item-link">
-            <a href="https://github.com/DannieW727/AD-MoE" target="_blank" rel="noopener">
-              GitHub · AD-MoE
-            </a>
-            <!-- 如果以后有 DOI，可以在这里加：
-            · <a href="DOI链接" target="_blank" rel="noopener">📄 Paper</a>
-            -->
+            <a href="https://doi.org/10.1002/srin.202501278" target="_blank" rel="noopener">📄 Paper</a>
+            ·
+            <a href="https://github.com/DannieW727/AD-MoE" target="_blank" rel="noopener">GitHub</a>
           </div>
         </article>
 
+      </div>
+    </section>
 
     <section id="contact">
       <h2>联系 / Contact</h2>
       <div class="item">
-        <p>邮箱 <a href="mailto:wangdanyicqu@163.com">wangdanyicqu@163.com</a> · GitHub <a href="https://github.com/DannieW727" target="_blank" rel="noopener">@DannieW727</a></p>
+        <p>
+          邮箱 <a href="mailto:wangdanyicqu@163.com">wangdanyicqu@163.com</a>
+          · GitHub
+          <a href="https://github.com/DannieW727" target="_blank" rel="noopener">@DannieW727</a>
+        </p>
       </div>
     </section>
 
@@ -167,7 +356,6 @@
   </main>
 
   <script>
-    // 小增强：平滑滚动 & 年份
     document.documentElement.style.scrollBehavior = 'smooth';
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
