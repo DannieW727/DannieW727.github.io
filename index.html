@@ -266,23 +266,22 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 12px;
+      align-items: start;
     }
-
+    
     .about-gallery img {
       width: 100%;
-      aspect-ratio: 1 / 1.05;
+      aspect-ratio: 1 / 1;
       object-fit: cover;
       border-radius: 18px;
       border: 1px solid var(--border);
       background: rgba(255,255,255,0.04);
-      transition: transform 0.25s ease;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: var(--shadow);
     }
-
-    .about-gallery img:hover,
-    .project-thumb:hover,
-    .logo-img:hover,
-    .leadership-logo:hover {
-      transform: translateY(-4px) scale(1.01);
+    
+    .about-gallery img:hover {
+      transform: translateY(-4px) scale(1.02);
     }
 
     /* Experience */
@@ -637,6 +636,12 @@
             <img src="images/Figure8.jpg" alt="Travel photo">
             <img src="images/Figure9.jpg" alt="Piano related photo">
             <img src="images/Figure10.jpg" alt="Sea related photo">
+            <img src="images/figure11.jpg" alt="Photo 4">
+            <img src="images/figure12.jpg" alt="Photo 5">
+            <img src="images/figure13.jpg" alt="Photo 6">
+            <img src="images/figure14.jpg" alt="Photo 7">
+            <img src="images/figure15.jpg" alt="Photo 8">
+            <img src="images/figure16.jpg" alt="Photo 9">
           </div>
         </div>
       </div>
@@ -843,7 +848,7 @@
 
         <div class="card contact-card">
           <h3>Instagram</h3>
-          <p><a href="https://www.instagram.com/your_instagram/" target="_blank" rel="noopener">@your_instagram</a></p>
+          <p><a href="https://www.instagram.com/your_instagram/" target="_blank" rel="noopener">appleduck222</a></p>
         </div>
 
         <div class="card contact-card">
