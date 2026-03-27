@@ -9,39 +9,50 @@
 
   <style>
     :root {
-      --bg: #0b0c0f;
-      --card: #11131a;
-      --text: #e6e7ea;
-      --muted: #a5a7ae;
+      --bg: #0a0d14;
+      --bg-soft: #101522;
+      --card: rgba(18, 24, 38, 0.82);
+      --card-strong: rgba(20, 27, 43, 0.95);
+      --text: #edf2ff;
+      --muted: #aab4c8;
       --brand: #7aa2ff;
-      --accent: #7ef0d1;
-      --border: #1b1e27;
-      --shadow: 0 10px 30px rgba(0,0,0,0.18);
+      --brand-2: #8ef0d0;
+      --border: rgba(255,255,255,0.08);
+      --shadow: 0 18px 40px rgba(0,0,0,0.22);
+      --radius: 22px;
+      --maxw: 1120px;
     }
 
     @media (prefers-color-scheme: light) {
       :root {
-        --bg:#f7f8fb;
-        --card:#ffffff;
-        --text:#12141a;
-        --muted:#5a5f6a;
-        --brand:#3b6af6;
-        --accent:#11b899;
-        --border:#e7e9f1;
-        --shadow: 0 10px 30px rgba(0,0,0,0.08);
+        --bg: #f6f8fc;
+        --bg-soft: #eef3fb;
+        --card: rgba(255,255,255,0.82);
+        --card-strong: rgba(255,255,255,0.96);
+        --text: #162033;
+        --muted: #5f6b80;
+        --brand: #3d6df6;
+        --brand-2: #14b895;
+        --border: rgba(17,24,39,0.08);
+        --shadow: 0 14px 30px rgba(39,53,83,0.10);
       }
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font: 15px/1.7 system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+      font: 15px/1.75 system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(1200px 600px at 10% -10%, rgba(122,162,255,0.14), transparent 60%),
-        radial-gradient(800px 500px at 100% 0%, rgba(17,184,153,0.14), transparent 40%),
-        var(--bg);
+        radial-gradient(900px 500px at 0% 0%, rgba(122,162,255,0.18), transparent 60%),
+        radial-gradient(900px 500px at 100% 0%, rgba(142,240,208,0.14), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg-soft) 55%, var(--bg));
+      min-height: 100vh;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -50,243 +61,493 @@
       color: var(--brand);
       text-decoration: none;
     }
+
     a:hover {
       text-decoration: underline;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 20px 72px;
     }
 
     header {
       position: sticky;
       top: 0;
-      z-index: 50;
-      backdrop-filter: blur(8px);
-      background: color-mix(in hsl, var(--bg) 90%, transparent);
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      background: color-mix(in srgb, var(--bg) 80%, transparent);
       border-bottom: 1px solid var(--border);
     }
 
     .nav {
-      max-width: 1050px;
+      max-width: var(--maxw);
       margin: 0 auto;
       padding: 0 20px;
-      height: 60px;
+      height: 66px;
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
     }
 
     .logo {
-      font-weight: 700;
-      letter-spacing: 0.3px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
       white-space: nowrap;
     }
 
-    .spacer { flex: 1; }
+    .spacer {
+      flex: 1;
+    }
 
     .nav a {
-      padding: 7px 10px;
-      border-radius: 10px;
       color: var(--text);
+      padding: 8px 12px;
+      border-radius: 12px;
+      transition: 0.2s ease;
     }
 
     .nav a:hover {
-      background: color-mix(in hsl, var(--brand) 14%, transparent);
+      background: rgba(122,162,255,0.10);
       text-decoration: none;
-    }
-
-    .wrap {
-      max-width: 1050px;
-      margin: 0 auto;
-      padding: 28px 20px 80px;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1.35fr 0.95fr;
-      gap: 22px;
-      align-items: stretch;
-      margin-top: 18px;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 24px;
-      box-shadow: var(--shadow);
-    }
-
-    .hero h1 {
-      margin: 0 0 10px;
-      font-size: 34px;
-      line-height: 1.25;
-    }
-
-    .hero p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .btns {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
+      transform: translateY(-1px);
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 10px 14px;
-      border-radius: 12px;
+      padding: 11px 15px;
       border: 1px solid var(--border);
-      background: linear-gradient(
-        180deg,
-        color-mix(in hsl, var(--card) 95%, transparent),
-        color-mix(in hsl, var(--card) 82%, transparent)
-      );
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
       color: var(--text);
-      transition: transform .15s ease, box-shadow .15s ease;
+      box-shadow: var(--shadow);
+      transition: 0.2s ease;
     }
 
     .btn:hover {
-      transform: translateY(-1px);
+      transform: translateY(-2px);
       text-decoration: none;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
     }
 
     .btn.primary {
-      border-color: color-mix(in hsl, var(--brand) 40%, var(--border));
-      background: linear-gradient(
-        180deg,
-        color-mix(in hsl, var(--brand) 18%, var(--card)),
-        var(--card)
-      );
+      background: linear-gradient(135deg, color-mix(in srgb, var(--brand) 28%, transparent), color-mix(in srgb, var(--brand-2) 16%, transparent));
+      border-color: rgba(122,162,255,0.28);
     }
 
-    section {
-      margin-top: 34px;
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.82fr;
+      gap: 24px;
+      align-items: center;
+      padding-top: 34px;
     }
 
-    h2 {
-      margin: 0 0 14px;
-      font-size: 24px;
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-card {
+      padding: 30px;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: 40px;
+      line-height: 1.2;
       letter-spacing: 0.2px;
     }
 
-    .section-intro {
-      color: var(--muted);
-      margin-bottom: 14px;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .timeline {
-      display: grid;
-      gap: 16px;
-    }
-
-    .item {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 18px;
-      box-shadow: var(--shadow);
-    }
-
-    .item h3 {
-      margin: 0 0 6px;
-      font-size: 18px;
-    }
-
-    .meta {
-      font-size: 13px;
-      color: var(--brand);
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-
-    .item p {
+    .hero p {
       margin: 0;
       color: var(--muted);
+      font-size: 16px;
     }
 
-    .item ul {
-      margin: 10px 0 0;
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .hero-side {
+      padding: 20px;
+    }
+
+    .profile-photo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 24px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .quick-list {
+      margin: 16px 0 0;
       padding-left: 18px;
       color: var(--muted);
     }
 
-    .item li {
-      margin: 6px 0;
+    .quick-list li {
+      margin: 8px 0;
     }
 
-    .project-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+    section {
+      margin-top: 36px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       gap: 16px;
+      margin-bottom: 14px;
     }
 
-    .pub-badge {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--brand);
-      margin-bottom: 8px;
+    h2 {
+      margin: 0;
+      font-size: 28px;
+      letter-spacing: 0.2px;
     }
 
-    .subpaper {
+    .section-desc {
+      margin: 0 0 16px;
+      color: var(--muted);
+    }
+
+    .content-card {
+      padding: 24px;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin: 0 0 14px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
       margin-top: 14px;
-      padding-top: 14px;
-      border-top: 1px dashed var(--border);
     }
 
-    .link-row {
-      margin-top: 12px;
+    .pill {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
       font-size: 14px;
     }
 
-    .resume-box {
-      display: flex;
-      flex-wrap: wrap;
+    .about-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 12px;
-      align-items: center;
-      justify-content: space-between;
     }
 
+    .about-gallery img {
+      width: 100%;
+      aspect-ratio: 1 / 1.05;
+      object-fit: cover;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      transition: transform 0.25s ease;
+    }
+
+    .about-gallery img:hover,
+    .project-thumb:hover,
+    .logo-img:hover,
+    .leadership-logo:hover {
+      transform: translateY(-4px) scale(1.01);
+    }
+
+    /* Experience */
+    .timeline {
+      position: relative;
+      margin-top: 10px;
+      padding-left: 26px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--brand), rgba(122,162,255,0.18));
+      border-radius: 999px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 18px;
+      padding-left: 18px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -22px;
+      top: 20px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, var(--brand), var(--brand-2));
+      box-shadow: 0 0 0 5px rgba(122,162,255,0.10);
+    }
+
+    .exp-card {
+      display: grid;
+      grid-template-columns: 1fr 120px;
+      gap: 18px;
+      align-items: center;
+      padding: 20px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--card-strong);
+      box-shadow: var(--shadow);
+    }
+
+    .exp-card h3,
+    .project-card h3,
+    .leadership-card h3,
+    .contact-card h3,
+    .resume-card h3 {
+      margin: 0 0 6px;
+      font-size: 19px;
+    }
+
+    .meta {
+      color: var(--brand);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .exp-card ul,
+    .leadership-card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .exp-card li,
+    .leadership-card li {
+      margin: 7px 0;
+    }
+
+    .logo-img,
+    .leadership-logo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      padding: 12px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      transition: transform 0.25s ease;
+    }
+
+    .leadership-wrap {
+      margin-top: 24px;
+    }
+
+    .leadership-card {
+      display: grid;
+      grid-template-columns: 1fr 130px;
+      gap: 18px;
+      align-items: center;
+      padding: 22px;
+    }
+
+    /* Projects */
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .project-card {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .project-top {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .badge {
+      display: inline-block;
+      width: fit-content;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--brand);
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(122,162,255,0.18);
+      background: rgba(122,162,255,0.08);
+    }
+
+    .project-thumb {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      transition: transform 0.25s ease;
+    }
+
+    .subpaper {
+      padding-top: 12px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .subpaper:first-of-type {
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .project-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    /* Resume */
+    .resume-card {
+      padding: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .resume-card p {
+      color: var(--muted);
+      margin: 0;
+      max-width: 700px;
+    }
+
+    /* Contact */
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 16px;
     }
 
+    .contact-card {
+      padding: 20px;
+      min-height: 150px;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      margin: 0;
+      word-break: break-word;
+    }
+
     footer {
-      margin-top: 48px;
+      margin-top: 50px;
       padding-top: 16px;
       border-top: 1px dashed var(--border);
       color: var(--muted);
       font-size: 14px;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 980px) {
       .hero,
-      .two-col,
+      .about-grid,
       .project-grid,
-      .contact-grid {
+      .contact-grid,
+      .leadership-card,
+      .exp-card {
         grid-template-columns: 1fr;
+      }
+
+      .hero-side {
+        max-width: 420px;
       }
     }
 
-    @media (max-width: 680px) {
+    @media (max-width: 760px) {
       .nav .hide-sm {
         display: none;
       }
+
       .hero h1 {
-        font-size: 28px;
+        font-size: 32px;
+      }
+
+      .about-gallery {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .wrap {
+        padding: 0 14px 56px;
+      }
+
+      .hero-card,
+      .hero-side,
+      .content-card,
+      .project-card,
+      .resume-card,
+      .contact-card,
+      .leadership-card,
+      .exp-card {
+        padding: 18px;
+      }
+
+      .about-gallery,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline {
+        padding-left: 20px;
       }
     }
   </style>
@@ -306,136 +567,203 @@
   </header>
 
   <main class="wrap">
+    <!-- Hero -->
     <section class="hero">
-      <div class="card">
+      <div class="card hero-card">
         <h1>Hello, I'm <span style="color:var(--brand)">Dannie Wang</span> 👋</h1>
         <p>
-          I am currently an undergraduate student at Chongqing University. My research interests
-          focus on time-series modeling, industrial intelligence, fault diagnosis, and machine learning
-          applications in real-world engineering systems.
+          I am currently an undergraduate student at Chongqing University. My interests lie in
+          time-series modeling, industrial intelligence, fault diagnosis, and the intersection
+          of machine learning with real-world engineering systems.
         </p>
 
-        <div class="btns">
+        <div class="hero-actions">
           <a class="btn primary" href="#projects">View Projects</a>
-          <a class="btn" href="#resume">View Resume</a>
-          <a class="btn" href="#contact">Contact Me</a>
+          <a class="btn" href="#experience">My Experience</a>
+          <a class="btn" href="#resume">Resume</a>
         </div>
-      </div>
 
-      <div class="card">
-        <h2>Quick Info</h2>
-        <ul style="margin:10px 0 0; padding-left:18px; color:var(--muted);">
-          <li>Undergraduate Student, Chongqing University</li>
-          <li>Research Interests: Time-Series Modeling, Fault Diagnosis, Industrial AI</li>
-          <li>Email: <a href="mailto:wangdanyicqu@163.com">wangdanyicqu@163.com</a></li>
-          <li>GitHub: <a href="https://github.com/DannieW727" target="_blank" rel="noopener">@DannieW727</a></li>
+        <ul class="quick-list">
+          <li>Undergraduate Student · Chongqing University</li>
+          <li>Research Interests · Time-Series Modeling, Fault Diagnosis, Industrial AI</li>
+          <li>Email · <a href="mailto:wangdanyicqu@163.com">wangdanyicqu@163.com</a></li>
+          <li>GitHub · <a href="https://github.com/DannieW727" target="_blank" rel="noopener">@DannieW727</a></li>
         </ul>
       </div>
-    </section>
 
-    <section id="about">
-      <h2>About Me</h2>
-      <div class="item">
-        <p>
-          I am currently pursuing my undergraduate studies at <strong>Chongqing University</strong>.
-          My academic background is in electrical engineering and intelligent systems, and I have developed
-          strong interests in time-series analysis, machine learning, industrial process modeling, and fault diagnosis.
-        </p>
-        <p style="margin-top:12px;">
-          Through coursework, research projects, and co-op experiences, I have worked on both academic and industrial problems,
-          including few-shot fault diagnosis for industrial robot transmission systems and data-driven prediction for blast furnace processes.
-          I enjoy connecting theory with practical engineering applications and building models that are both effective and interpretable.
-        </p>
+      <div class="card hero-side">
+        <!-- Figure1: your photo -->
+        <img class="profile-photo" src="images/figure1.jpg" alt="Portrait of Dannie Wang">
       </div>
     </section>
 
+    <!-- About -->
+    <section id="about">
+      <div class="section-title">
+        <h2>About Me</h2>
+      </div>
+      <div class="card content-card">
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              I am an undergraduate student at <strong>Chongqing University</strong>, and I am passionate about
+              exploring how machine learning and time-series methods can solve practical engineering problems.
+              My academic interests mainly focus on industrial intelligence, fault diagnosis, sequence modeling,
+              and data-driven analysis for complex systems.
+            </p>
+            <p>
+              Beyond academics, I am also someone who enjoys discovering the world in different ways.
+              I am an <strong>INTJ</strong>, and I like thinking deeply, planning carefully, and turning ideas into reality.
+              I love <strong>traveling</strong>, because every city and every journey gives me a new perspective.
+              I enjoy <strong>playing the piano</strong>, which helps me stay calm and expressive.
+              I also really love <strong>the sea</strong> — its openness, quietness, and sense of freedom always inspire me.
+            </p>
+            <p>
+              I hope to continue building research that is both technically solid and closely connected
+              to meaningful real-world applications.
+            </p>
+
+            <div class="pill-row">
+              <span class="pill">INTJ</span>
+              <span class="pill">Travel Lover</span>
+              <span class="pill">Piano</span>
+              <span class="pill">Love the Sea</span>
+              <span class="pill">Industrial AI</span>
+            </div>
+          </div>
+
+          <div class="about-gallery">
+            <!-- Figure8, Figure9, Figure10 -->
+            <img src="images/figure8.jpg" alt="Travel photo">
+            <img src="images/figure9.jpg" alt="Piano related photo">
+            <img src="images/figure10.jpg" alt="Sea related photo">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
     <section id="experience">
-      <h2>Experience</h2>
-      <p class="section-intro">
-        Co-op internships and student leadership experience.
+      <div class="section-title">
+        <h2>Experience</h2>
+      </div>
+      <p class="section-desc">
+        Co-op internship experiences presented in a timeline, followed by student leadership experience.
       </p>
 
       <div class="timeline">
-        <div class="item">
-          <h3>Research Intern · Chongqing University</h3>
-          <div class="meta">Jan 2024 – Apr 2024</div>
-          <ul>
-            <li>Worked on servo motor drive system control and simulation.</li>
-            <li>Used MATLAB/Simulink for FOC, SVPWM, PID-related modeling and parameter analysis.</li>
-            <li>Participated in program testing and engineering analysis for control system performance.</li>
-          </ul>
+        <div class="timeline-item">
+          <div class="exp-card">
+            <div>
+              <h3>Research Intern · Chongqing University</h3>
+              <div class="meta">Jan 2024 – Apr 2024</div>
+              <ul>
+                <li>Worked on servo motor drive system control and simulation research.</li>
+                <li>Used MATLAB/Simulink for FOC, SVPWM, PID-related modeling and parameter analysis.</li>
+                <li>Participated in testing and engineering analysis for control system performance.</li>
+              </ul>
+            </div>
+            <!-- Figure2 -->
+            <img class="logo-img" src="images/figure2.png" alt="Chongqing University logo">
+          </div>
         </div>
 
-        <div class="item">
-          <h3>System Engineering Intern · NARI Rail Transit Technology Co., Ltd.</h3>
-          <div class="meta">May 2024 – Aug 2024</div>
-          <ul>
-            <li>Participated in rail transit project system design and documentation.</li>
-            <li>Produced CAD drawings related to BAS, FAS, CCTV, AFC, and electrical systems.</li>
-            <li>Assisted with system linkage logic analysis and workflow optimization.</li>
-          </ul>
+        <div class="timeline-item">
+          <div class="exp-card">
+            <div>
+              <h3>System Engineering Intern · NARI Rail Transit Technology Co., Ltd.</h3>
+              <div class="meta">May 2024 – Aug 2024</div>
+              <ul>
+                <li>Participated in rail transit project system design and technical documentation.</li>
+                <li>Produced CAD drawings related to BAS, FAS, CCTV, AFC, and electrical systems.</li>
+                <li>Assisted with system linkage logic analysis and workflow optimization.</li>
+              </ul>
+            </div>
+            <!-- Figure3 -->
+            <img class="logo-img" src="images/figure3.png" alt="NARI logo">
+          </div>
         </div>
 
-        <div class="item">
-          <h3>Time Series Algorithm Intern · CISDI Information Technology (Chongqing) Co., Ltd.</h3>
-          <div class="meta">Jan 2025 – Apr 2025</div>
-          <ul>
-            <li>Built and tested time-series forecasting and anomaly detection models using PyTorch.</li>
-            <li>Reproduced and studied models such as PatchTST, ModernTCN, and TimeMixer.</li>
-            <li>Applied modeling methods to industrial prediction tasks and prepared technical documentation.</li>
-          </ul>
+        <div class="timeline-item">
+          <div class="exp-card">
+            <div>
+              <h3>Time Series Algorithm Intern · CISDI Information Technology (Chongqing) Co., Ltd.</h3>
+              <div class="meta">Jan 2025 – Apr 2025</div>
+              <ul>
+                <li>Built and tested time-series forecasting and anomaly detection models using PyTorch.</li>
+                <li>Reproduced and studied models such as PatchTST, ModernTCN, and TimeMixer.</li>
+                <li>Applied modeling methods to industrial prediction tasks and prepared technical documentation.</li>
+              </ul>
+            </div>
+            <!-- Figure4 -->
+            <img class="logo-img" src="images/figure4.png" alt="CISDI Information logo">
+          </div>
         </div>
 
-        <div class="item">
-          <h3>Time Series Algorithm Intern · CISDI Information Technology (Chongqing) Co., Ltd.</h3>
-          <div class="meta">Sep 2025 – Dec 2025</div>
-          <ul>
-            <li>Continued research and development on industrial time-series modeling tasks.</li>
-            <li>Focused on forecasting, anomaly detection, model optimization, and engineering deployment support.</li>
-            <li>Contributed to data-driven analysis for complex industrial systems.</li>
-          </ul>
+        <div class="timeline-item">
+          <div class="exp-card">
+            <div>
+              <h3>Time Series Algorithm Intern · CISDI Information Technology (Chongqing) Co., Ltd.</h3>
+              <div class="meta">Sep 2025 – Dec 2025</div>
+              <ul>
+                <li>Continued research on industrial time-series modeling tasks.</li>
+                <li>Focused on forecasting, anomaly detection, model optimization, and deployment support.</li>
+                <li>Contributed to data-driven analysis for complex industrial systems.</li>
+              </ul>
+            </div>
+            <!-- Figure4 -->
+            <img class="logo-img" src="images/figure4.png" alt="CISDI Information logo">
+          </div>
         </div>
+      </div>
 
-        <div class="item">
-          <h3>Student Leadership · Chongqing University–University of Cincinnati Joint Co-op Institute</h3>
-          <div class="meta">Sep 2023 – Sep 2025</div>
-          <ul>
-            <li>Served as <strong>Deputy Secretary of the Youth League Committee</strong> in the first year.</li>
-            <li>Served as <strong>Executive Deputy Secretary of the Youth League Committee</strong> in the second year.</li>
-            <li>As a presidium member, helped organize and coordinate student activities, orientations, and institute events.</li>
-          </ul>
+      <div class="leadership-wrap">
+        <div class="card leadership-card">
+          <div>
+            <h3>Student Leadership · Chongqing University–University of Cincinnati Joint Co-op Institute</h3>
+            <div class="meta">Sep 2023 – Sep 2025</div>
+            <ul>
+              <li>Served as a presidium member of the Joint Co-op Institute student organization.</li>
+              <li>Worked as <strong>Deputy Secretary of the Youth League Committee</strong> during the first year.</li>
+              <li>Worked as <strong>Executive Deputy Secretary of the Youth League Committee</strong> during the second year.</li>
+              <li>Helped organize student activities, institute events, and communication work.</li>
+            </ul>
+          </div>
+          <!-- Figure5 -->
+          <img class="leadership-logo" src="images/figure5.png" alt="Joint Co-op Institute logo">
         </div>
       </div>
     </section>
 
+    <!-- Projects -->
     <section id="projects">
-      <h2>Projects</h2>
-      <p class="section-intro">
-        Selected research projects with corresponding GitHub repositories and publication links.
+      <div class="section-title">
+        <h2>Projects</h2>
+      </div>
+      <p class="section-desc">
+        Selected research projects with GitHub repositories and publication links.
       </p>
 
       <div class="project-grid">
-        <article class="item">
+        <article class="card project-card">
+          <div class="badge">Published in IEEE Access & IET Conference Proceedings</div>
           <h3>🔧 Project A: PTFM</h3>
-          <div class="pub-badge">Published in IEEE Access & IET Conference Proceedings</div>
+
+          <!-- Figure6 -->
+          <img class="project-thumb" src="images/figure6.jpg" alt="PTFM framework thumbnail">
 
           <p>
-            <strong>Project theme:</strong> few-shot fault diagnosis based on time-frequency representation learning
+            A project centered on few-shot fault diagnosis through time-frequency representation learning
             and prototypical networks.
           </p>
 
-          <div class="subpaper" style="border-top:none; padding-top:0; margin-top:12px;">
+          <div class="subpaper">
             <p>
               <strong>Paper 1:</strong>
               Few-Shot Fault Diagnosis for Industrial Robot Transmission Systems via a Prototypical Time-Frequency Mixer.
             </p>
-            <p style="margin-top:8px;">
-              A lightweight framework integrating temporal modeling, frequency-domain enhancement, and prototypical learning
-              for industrial robot transmission fault diagnosis.
-            </p>
             <div class="link-row">
               <a href="https://doi.org/10.1109/ACCESS.2025.3620386" target="_blank" rel="noopener">📄 Paper 1</a>
-              ·
               <a href="https://github.com/DannieW727/fewshot-robot-fault" target="_blank" rel="noopener">GitHub</a>
             </div>
           </div>
@@ -445,85 +773,80 @@
               <strong>Paper 2:</strong>
               Fault Diagnosis in Rolling Element Bearings Based on TimeMixer and Prototypical Network.
             </p>
-            <p style="margin-top:8px;">
-              This work extends the project line to rolling element bearings and explores TimeMixer with prototypical learning
-              for intelligent diagnosis.
-            </p>
             <div class="link-row">
               <a href="https://doi.org/10.1049/icp.2025.2349" target="_blank" rel="noopener">📄 Paper 2</a>
             </div>
           </div>
         </article>
 
-        <article class="item">
+        <article class="card project-card">
+          <div class="badge">Published in Steel Research International</div>
           <h3>🧠 Project B: AD-MoE</h3>
-          <div class="pub-badge">Published in Steel Research International</div>
+
+          <!-- Figure7 -->
+          <img class="project-thumb" src="images/figure7.jpg" alt="AD-MoE framework thumbnail">
 
           <p>
-            <strong>Adaptive Dilation Attention and Disentangled Mixture-of-Experts for Hot Metal Silicon Prediction in Blast Furnace Ironmaking Process.</strong>
-          </p>
-          <p style="margin-top:8px;">
             A time-series prediction framework for blast furnace ironmaking that combines adaptive dilation attention
-            and disentangled mixture-of-experts to capture multiscale temporal dependencies and improve robustness
-            under noisy industrial environments.
+            and a disentangled mixture-of-experts architecture to model multiscale temporal dynamics.
           </p>
 
-          <div class="link-row">
-            <a href="https://doi.org/10.1002/srin.202501278" target="_blank" rel="noopener">📄 Paper</a>
-            ·
-            <a href="https://github.com/DannieW727/AD-MoE" target="_blank" rel="noopener">GitHub</a>
+          <div class="subpaper">
+            <p>
+              <strong>Paper:</strong>
+              Adaptive Dilation Attention and Disentangled Mixture-of-Experts for Hot Metal Silicon Prediction in Blast Furnace Ironmaking Process.
+            </p>
+            <div class="link-row">
+              <a href="https://doi.org/10.1002/srin.202501278" target="_blank" rel="noopener">📄 Paper</a>
+              <a href="https://github.com/DannieW727/AD-MoE" target="_blank" rel="noopener">GitHub</a>
+            </div>
           </div>
         </article>
       </div>
     </section>
 
+    <!-- Resume -->
     <section id="resume">
-      <h2>Resume</h2>
-      <div class="item">
-        <div class="resume-box">
-          <div>
-            <p>
-              You can view or download my resume here.
-            </p>
-            <p style="margin-top:10px;">
-              Please upload your PDF file to the same GitHub repository and name it
-              <strong>resume.pdf</strong>.
-            </p>
-          </div>
-
-          <div class="btns" style="margin-top:0;">
-            <a class="btn primary" href="resume.pdf" target="_blank" rel="noopener">📄 View Resume</a>
-            <a class="btn" href="resume.pdf" download>Download PDF</a>
-          </div>
+      <div class="section-title">
+        <h2>Resume</h2>
+      </div>
+      <div class="card resume-card">
+        <div>
+          <h3>My Resume</h3>
+          <p>
+            You can view or download my resume here. Please upload your PDF file to the same GitHub
+            repository and name it <strong>resume.pdf</strong>.
+          </p>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:12px;">
+          <a class="btn primary" href="resume.pdf" target="_blank" rel="noopener">📄 View Resume</a>
+          <a class="btn" href="resume.pdf" download>Download PDF</a>
         </div>
       </div>
     </section>
 
+    <!-- Contact -->
     <section id="contact">
-      <h2>Contact Info</h2>
+      <div class="section-title">
+        <h2>Contact Info</h2>
+      </div>
       <div class="contact-grid">
-        <div class="item">
+        <div class="card contact-card">
           <h3>Email</h3>
-          <p>
-            <a href="mailto:wangdanyicqu@163.com">wangdanyicqu@163.com</a>
-          </p>
+          <p><a href="mailto:wangdanyicqu@163.com">wangdanyicqu@163.com</a></p>
         </div>
 
-        <div class="item">
+        <div class="card contact-card">
           <h3>GitHub</h3>
-          <p>
-            <a href="https://github.com/DannieW727" target="_blank" rel="noopener">github.com/DannieW727</a>
-          </p>
+          <p><a href="https://github.com/DannieW727" target="_blank" rel="noopener">github.com/DannieW727</a></p>
         </div>
 
-        <div class="item">
+        <div class="card contact-card">
           <h3>Instagram</h3>
-          <p>
-            <a href="https://www.instagram.com/your_instagram/" target="_blank" rel="noopener">@your_instagram</a>
-          </p>
+          <p><a href="https://www.instagram.com/your_instagram/" target="_blank" rel="noopener">@your_instagram</a></p>
         </div>
 
-        <div class="item">
+        <div class="card contact-card">
           <h3>Location</h3>
           <p>Chongqing, China</p>
         </div>
